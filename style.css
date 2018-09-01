@@ -73,6 +73,9 @@ main {
 
 article {
   width: 50%;
+  border-bottom: solid;
+  border-color: #d1d3d4;
+  border-width: 2px;
 }
 
 .example {
@@ -100,7 +103,9 @@ div {
 .quality {
   color: #6d6e71;
   display: inline-block;
+  padding: 43px 4px;
 }
+
 
 
 
