@@ -97,10 +97,12 @@ div {
   display: inline-block;
 }
 
-.quality {
+.rating, 
+.quality  {
   color: #6d6e71;
   display: inline-block;
 }
+
 
 
 
