@@ -1,10 +1,3 @@
-var titleSearch = $('.title-input');
-var bodySearch = $('.body-input');
-var search = $('.search');
-var cardCreateSection = $('.card-Creator');
-
-// Event Listeners==============
-titleSearch.on('keyup', createIdea);
 
 // functions==========================
 
@@ -15,4 +8,12 @@ function Idea(id,title,body,quality) {
     this.quality = “genius”;
 }
 
+
+
+var ideaTitle = $('.title-input');
+var ideaBody = $('.body-input');
+var searchBar = $('.search');
+var ideaCardSection = $('.idea-card-section')
+
+ideaTitleInput.on('keyup', createIdea)
 
