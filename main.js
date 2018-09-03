@@ -27,6 +27,8 @@ function Idea(id,title,body,quality) {
 function saveOurIdea(e) {
     e.preventDefault();
     var anIdea = new Idea();
+    addNewIdeaCard(anIdea)
+
 
 }
 
@@ -44,24 +46,25 @@ function clearInputs() {
     ideaBody.val() === '' ;
 }
 
-function addNewIdeaCard(Idea) {
+function addNewIdeaCard(idea) {
+  console.log(idea)
 
-   ideaCardSection.prepend(`<article class="idea-card-section" dataSet-id- 
-    ${newIdea.id}>
+   ideaCardSection.prepend(`<article class="idea-card-section" data-id=
+    "${idea.id}">
 <section class="example">
-     <h1 class="idea-title">${newIdea.title}</h1>
-     <img src="icon-assets/delete.svg" width="40" height="40" class="imageX">
-    </section>
-    <p>${newIdea.body}
-    </p>
+     <h1 class="idea-title">${idea.title}</h1>
+   <img src="icon-assets/delete.svg" width="40" height="40" class="imageX">
+     </section>
+   <p>${idea.body}
+   </p>
     <div class="votes">
-     <img src="icon-assets/downvote.svg" width="40" height="40">
+    <img src="icon-assets/downvote.svg" width="40" height="40">
      <img src="icon-assets/upvote.svg" width="40" height="40">
     </div>
     <div class="rating">
-     <h1 class="quality">quality:</h1>
+    <h1 class="quality">quality:</h1>
    </div>
-   </article>`)
+  </article>`)
    clearInputs() 
 }
 
