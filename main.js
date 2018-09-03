@@ -16,7 +16,7 @@ ideaBody.on('keyup', enableSave);
 // functions==========================
 
 function Idea(id,title,body,quality) {
-    this.id = id;
+    this.id = Date.now();
     this.title = $('.title-input').val();
     this.body = $('.body-input').val();
     this.quality = 'swill';
@@ -44,8 +44,10 @@ function clearInputs() {
     ideaBody.val() === '' ;
 }
 
-function addNewIdeaCard(newIdea) {
-   ideaCardSection.prepend(`<article class="idea-card-section">
+function addNewIdeaCard(Idea) {
+
+   ideaCardSection.prepend(`<article class="idea-card-section" dataSet-id- 
+    ${newIdea.id}>
 <section class="example">
      <h1 class="idea-title">${newIdea.title}</h1>
      <img src="icon-assets/delete.svg" width="40" height="40" class="imageX">
@@ -63,7 +65,13 @@ function addNewIdeaCard(newIdea) {
    clearInputs() 
 }
 
+// local storage methods localStorage.get() localStoragee.set() localStorage.remove(
 
+
+function saveIdea() {
+  var storeInfo = JSON.stringify(idea)
+  localStorage.setItem(idea.id, stringToStore)
+}
 
 
 
