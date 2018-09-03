@@ -34,14 +34,34 @@ function enableSave() {
     var isDisabled = $('.title-input').val() === '' || $('.body-input').val() === '';
 
        saveBtn.prop('disabled', isDisabled);
-        
+       $('.title-input').val() === ''
+     
+
 }
 
+function clearInputs() {
+    ideaTitle.val() === '';
+    ideaBody.val() === '' ;
+}
 
-//         function enableSubmit() {
-//   var isDisabled = $('.grocery-list-form--quantity').val() === '' || $('.grocery-list-form--item').val() === '';
-//   $('.grocery-list-form--submit').prop('disabled', isDisabled);
-// }
+function addNewIdeaCard(newIdea) {
+   ideaCardSection.prepend(`<article class="idea-card-section">
+<section class="example">
+     <h1 class="idea-title">${newIdea.title}</h1>
+     <img src="icon-assets/delete.svg" width="40" height="40" class="imageX">
+    </section>
+    <p>${newIdea.body}
+    </p>
+    <div class="votes">
+     <img src="icon-assets/downvote.svg" width="40" height="40">
+     <img src="icon-assets/upvote.svg" width="40" height="40">
+    </div>
+    <div class="rating">
+     <h1 class="quality">quality:</h1>
+   </div>
+   </article>`)
+   clearInputs() 
+}
 
 
 
