@@ -34,7 +34,7 @@ span {
 .body-input,
 .save-button,
 .search{
-  display:block
+  display:block;
   font-size: 2rem;
   height: 6vh;
   margin:20px auto;
