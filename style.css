@@ -79,9 +79,6 @@ main {
   
 }
 
-article {
-}
-
 .example {
   display: flex;
   font-size: 2rem;
@@ -101,14 +98,12 @@ p {
 
 div {
   display: inline-block;
-  width: 15%;
 }
 
-.rating, 
-.quality  {
+.user-quality  {
   color: #6d6e71;
   display: inline-block;
-  padding: 43px 4px;
+  /*padding: 43px 4px;*/
 }
 
 
