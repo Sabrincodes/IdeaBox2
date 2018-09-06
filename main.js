@@ -59,17 +59,16 @@ function addNewIdeaCard(idea) {
    ideaCardSection.prepend(`<article class="idea-card-section" id=
     ${idea.id}>
      <section class="example">
-     <h1 class="idea-title">${idea.title}</h1>
-     <img src="icon-assets/delete.svg" width="40" height="40" class="imageX">
+       <h1 class="idea-title">${idea.title}</h1>
+       <img src="icon-assets/delete.svg" width="40" height="40" class="imageX">
      </section>
-     <p>${idea.body}
-     </p>
+         <p>${idea.body}
+         </p>
      <div class="votes">
-     <img class="downvote quality-button" src="icon-assets/downvote.svg" width="40" height="40">
-     <img class="upvote quality-button" src="icon-assets/upvote.svg" width="40" height="40">
-     </div>
+       <img class="downvote quality-button" src="icon-assets/downvote.svg" width="40" height="40">
+       <img class="upvote quality-button" src="icon-assets/upvote.svg" width="40" height="40">
      <div class="rating">
-     <h1 class="user-quality">userquality: <span class="quality">${idea.quality}</span</h1>
+       <h1 class="user-quality">userquality: <span class="quality">${idea.quality}</span</h1>
     </div>
    </article>`)
  clearInputs()
