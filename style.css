@@ -79,6 +79,13 @@ main {
   
 }
 
+.votes {
+  display:flex;
+  width: 35%;
+  justify-content: flex-start;
+
+}
+
 .example {
   display: flex;
   font-size: 2rem;
@@ -104,6 +111,36 @@ div {
   color: #6d6e71;
   display: inline-block;
   /*padding: 43px 4px;*/
+}
+
+/*MEDIA QUERIES*/
+
+@media only screen and (max-width: 555px) {
+
+.main-title {
+  color: #6d6e71;
+  font-size: 3rem;
+  padding-top: 2%;
+}
+
+
+
+
+
+@media only screen and (max-width: 300px) {
+
+  .main-title {
+  color: #6d6e71;
+  font-size: 2rem;
+  padding-top: 2%;
+}
+
+.body-input {
+
+   height: 14vh;
+
+
+
 }
 
 
