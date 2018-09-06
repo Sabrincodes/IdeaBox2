@@ -85,7 +85,6 @@ main {
 
 .votes {
   display:flex;
-  width: 35%;
   justify-content: flex-start;
 
 }
