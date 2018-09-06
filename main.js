@@ -13,9 +13,13 @@ var userQuality = $('.user-quality');
 
 // Event listeners=============
 saveBtn.on('click', saveOurIdea);
+saveBtn.on('click', clearInputs);
 ideaTitle.on('keyup', enableSave);
 ideaBody.on('keyup', enableSave);
 ideaCardSection.on('click', rate);
+
+
+
 // functions======CONSTRUCTOR
 
 function Idea(id,title,body,quality) {
@@ -25,7 +29,6 @@ function Idea(id,title,body,quality) {
   this.quality = 'swill';
 }
 function saveOurIdea(e) {
-   console.log('hi')
   e.preventDefault();
   var anIdea = new Idea();
   addNewIdeaCard(anIdea)
@@ -39,8 +42,8 @@ function enableSave() {
 
 // CLEAR INPUTS
 function clearInputs() {
-  ideaTitle.val() === '';
-  ideaBody.val() === '' ;
+  ideaTitle.val('');
+  ideaBody.val(''); 
 }
 
 function addNewIdeaCard(idea) {
@@ -58,7 +61,7 @@ function addNewIdeaCard(idea) {
        <h1 class="user-quality">userquality: <span class="quality">${idea.quality}</span</h1>
     </div>
    </article>`);
- clearInputs();
+ clearInputs()
  storeIdea(idea); 
 }
 
