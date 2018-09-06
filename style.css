@@ -1,34 +1,32 @@
-/*font refrence*/
-/*font-family: 'Open Sans', sans-serif;
-font-family: 'Roboto Slab', serif;*/
+
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 body { 
  font-family: 'Open Sans', sans-serif;
   }
 
-/*top section*/
+/*Top section*/
 header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #e5f3f2;
+  display: flex;
+  flex-direction: column;
   height: 45vh;
+  justify-content: center;
 }
 
 span {
-  font-family: 'Roboto Slab', serif;
   color: #00a79d;
+  font-family: 'Roboto Slab', serif;
 }
 
 .main-title {
-  font-size: 4rem;
   color: #6d6e71;
+  font-size: 4rem;
   padding-top: 2%;
 }
 
@@ -37,15 +35,15 @@ span {
 .save-button,
 .search{
   display:block
-  margin:20px auto;
-  width: 50%;
-  height: 6vh;
   font-size: 2rem;
+  height: 6vh;
+  margin:20px auto;
   margin: 1% 0%;
+  width: 50%;
 }
 
 ::placeholder {
-    color: #939598;
+  color: #939598;
 }
 
 .body-input {
@@ -55,16 +53,16 @@ span {
 }
 
 .save-button {
-  color: white;
   background-color: #00a79d;
+  color: white;
 }
 
-/*bottom section*/
+/*Bottom section*/
 main {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .search {
@@ -72,17 +70,17 @@ main {
 }
 
 article {
-  width: 50%;
   border-bottom: solid;
   border-color: #d1d3d4;
   border-width: 2px;
+  width: 50%;
 }
 
 .example {
-  width: 100%;
   display: flex;
   font-size: 2rem;
   justify-content: space-between;
+  width: 100%;
 }
 
 .idea-title {
@@ -96,8 +94,8 @@ p {
 }
 
 div {
-  width: 15%;
   display: inline-block;
+  width: 15%;
 }
 
 .rating, 
