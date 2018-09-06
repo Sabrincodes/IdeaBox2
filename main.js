@@ -16,9 +16,9 @@ var userQuality = $('.user-quality');
 saveBtn.on('click', saveOurIdea);
 ideaTitle.on('keyup', enableSave);
 ideaBody.on('keyup', enableSave);
-ideaCardSection.on('click', deleteCard);
-upVote.on('click', castVote);
-downVote.on('click', castVote);
+// ideaCardSection.on('click', deleteCard);
+ideaCardSection.on('click', rate);
+
 
 // functions======CONSTRUCTOR
 
@@ -32,6 +32,7 @@ function Idea(id,title,body,quality) {
 
 
 function saveOurIdea(e) {
+    console.log('hi')
     e.preventDefault();
     var anIdea = new Idea();
     addNewIdeaCard(anIdea)
@@ -64,11 +65,11 @@ function addNewIdeaCard(idea) {
      <p>${idea.body}
      </p>
      <div class="votes">
-     <img class="downvote" src="icon-assets/downvote.svg" width="40" height="40">
-     <img class="upvote" src="icon-assets/upvote.svg" width="40" height="40">
+     <img class="downvote quality-button" src="icon-assets/downvote.svg" width="40" height="40">
+     <img class="upvote quality-button" src="icon-assets/upvote.svg" width="40" height="40">
      </div>
      <div class="rating">
-     <h1 class="user-quality">userquality: <span class="user-quality">${idea.quality}</span</h1>
+     <h1 class="user-quality">userquality: <span class="quality">${idea.quality}</span</h1>
     </div>
    </article>`)
  clearInputs()
@@ -112,19 +113,38 @@ function fetch() {
 
 // ==QUALITY
 
+
+var counter = 0;
+
+
+function rate(event) {
+    console.log('hi')
+    if ($(event.target).hasClass('imageX')) {
+      deleteCard(event) 
+    } else if ($(event.target).hasClass('quality-button')) {
+        castVote(event.target)
+
+    }
+}
+
 function castVote(ratings) {
+    console.log(ratings)
   var qualityRating = $(event.target).closest('article').find('.user-quality')[0].id;
-  if (ratings === 'up' && $(quality).text() === 'swill') {
-    $(quality).text('plausible');
+  
+  if ($(ratings).hasClass('upvote')  && counter === 0) {
+    counter++;
+    console.log('tu')
+    $('.quality').text('plausible');
     return 'plausible';
-  } else if (ratings === 'up' && $(quality).text() === 'plausible') {
-    $(quality).text('genius');
+  } else if ($(ratings).hasClass('upvote') && counter === 1 ) {
+    $('.quality').text('genius');
     return 'genius';
-  } else if (ratings === 'down' && $(quality).text() === 'genius') {
-    $(quality).text('plausible');
+  } else if ($(ratings).hasClass('downvote') && counter === 1 )  {
+    counter --;
+    $('.quality').text('plausible');
     return 'plausible';
-  } else if (ratings === 'down' && $(quality).text() === 'plausible') {
-    $(quality).text('swill');
+  } else if ($(ratings).hasClass('downvote')  && counter === 0 ) {
+    $('.quality').text('swill');
     return 'swill';
   } 
 }
