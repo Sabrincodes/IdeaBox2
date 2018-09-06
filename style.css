@@ -63,8 +63,8 @@ span {
 
 /*Bottom section*/
 main {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
@@ -109,7 +109,6 @@ div {
 .user-quality  {
   color: #6d6e71;
   display: inline-block;
-
 }
 
 /*MEDIA QUERIES*/
@@ -121,7 +120,6 @@ div {
   font-size: 3rem;
   padding-top: 2%;
 }
-
 
 .idea-title {
   font-size: 1.5rem;
