@@ -59,8 +59,8 @@ span {
 
 /*Bottom section*/
 main {
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
 }
@@ -69,18 +69,24 @@ main {
   margin-top: 2%;
 }
 
-article {
+
+.idea-card-section {
   border-bottom: solid;
   border-color: #d1d3d4;
   border-width: 2px;
   width: 50%;
+
+  
+}
+
+article {
 }
 
 .example {
   display: flex;
   font-size: 2rem;
   justify-content: space-between;
-  width: 100%;
+  width: 200%;
 }
 
 .idea-title {

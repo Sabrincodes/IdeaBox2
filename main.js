@@ -149,12 +149,29 @@ function castVote(ratings) {
   } 
 }
 
-// EDIT EXISTING IDEA========================
-// function editExisting() {
-//     if(this.$('.title-input').val === || this.$('.body-input').val
+
+function deleteCard(event) {
+  if ($(event.target).hasClass('imageX')) { 
+ var selectId = ($(event.target).closest('article')[0].id)
+ console.log(selectId)
+
+ removeFromStorage(selectId)
+    $(event.target).closest('article').remove();
+  }
+}
 
 
-// // }
+
+
+
+// similar to delete where u find id of article 
+// localStorage.get() based off the id from event target
+// consooe.llog a lot
+// parse it'll give u quality etc in obvject . manipulate object so objectname.quality and reasign it to whatever class (genius etc)is on if stattement for it 
+ // ex. object.quality === swill// 
+
+ // stringify adn send back to local storage w same id wehich will override other one
+
 
 
 
