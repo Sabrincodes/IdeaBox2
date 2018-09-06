@@ -73,14 +73,11 @@ main {
   margin-top: 2%;
 }
 
-
 .idea-card-section {
   border-bottom: solid;
   border-color: #d1d3d4;
   border-width: 2px;
-  width: 50%;
-
-  
+  width: 50%; 
 }
 
 .votes {
@@ -88,7 +85,6 @@ main {
   justify-content: flex-start;
 
 }
-
 .example {
   display: flex;
   font-size: 2rem;

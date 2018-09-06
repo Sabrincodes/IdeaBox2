@@ -12,14 +12,10 @@ var downVote = $('.downvote');
 var userQuality = $('.user-quality');
 
 // Event listeners=============
-// ideaTitleInput.on('keyup', createIdea);
 saveBtn.on('click', saveOurIdea);
 ideaTitle.on('keyup', enableSave);
 ideaBody.on('keyup', enableSave);
-// ideaCardSection.on('click', deleteCard);
 ideaCardSection.on('click', rate);
-
-
 // functions======CONSTRUCTOR
 
 function Idea(id,title,body,quality) {
@@ -28,23 +24,16 @@ function Idea(id,title,body,quality) {
     this.body = $('.body-input').val();
     this.quality = 'swill';
 }
-
-
-
 function saveOurIdea(e) {
     console.log('hi')
     e.preventDefault();
     var anIdea = new Idea();
     addNewIdeaCard(anIdea)
-
-
 }
-
 function enableSave() {
     var isDisabled = $('.title-input').val() === '' || $('.body-input').val() === '';
-
-       saveBtn.prop('disabled', isDisabled);
-       $('.title-input').val() === ''
+    saveBtn.prop('disabled', isDisabled);
+    $('.title-input').val() === '';
      
 
 }
@@ -80,12 +69,7 @@ function storeIdea(idea) {
   var storeInfo = JSON.stringify(idea)
   localStorage.setItem(idea.id, storeInfo);
 }
-
-
 // DELETE CARD======
-
-
-
 function deleteCard(event) {
   if ($(event.target).hasClass('imageX')) { 
  var selectId = ($(event.target).closest('article')[0].id)
@@ -103,19 +87,14 @@ parsedFromStorage;
 
 function fetch() {
     var whatsInLocal = Object.keys(localStorage);
- 
     for(var i = 0; i < whatsInLocal.length; i++) {
-        console.log(JSON.parse(localStorage.getItem(whatsInLocal[i])))
-      addNewIdeaCard(JSON.parse(localStorage.getItem(whatsInLocal[i])))  
+    console.log(JSON.parse(localStorage.getItem(whatsInLocal[i])))
+    addNewIdeaCard(JSON.parse(localStorage.getItem(whatsInLocal[i])))  
     }
 }
 
 // ==QUALITY
-
-
 var counter = 0;
-
-
 function rate(event) {
     console.log('hi')
     if ($(event.target).hasClass('imageX')) {
@@ -148,7 +127,6 @@ function castVote(ratings) {
   } 
 }
 
-
 function deleteCard(event) {
   if ($(event.target).hasClass('imageX')) { 
  var selectId = ($(event.target).closest('article')[0].id)
@@ -163,13 +141,6 @@ function deleteCard(event) {
 
 
 
-// similar to delete where u find id of article 
-// localStorage.get() based off the id from event target
-// consooe.llog a lot
-// parse it'll give u quality etc in obvject . manipulate object so objectname.quality and reasign it to whatever class (genius etc)is on if stattement for it 
- // ex. object.quality === swill// 
-
- // stringify adn send back to local storage w same id wehich will override other one
 
 
 
