@@ -1,5 +1,6 @@
 
-$(document).ready(fetch)
+$(document).ready(fetch) 
+// onload run fetch
 
 var ideaTitle = $('.title-input');
 var ideaBody = $('.body-input');
@@ -14,7 +15,7 @@ var userQuality = $('.user-quality');
 // Event listeners=============
 saveBtn.on('click', saveOurIdea);
 saveBtn.on('click', clearInputs);
-ideaTitle.on('keyup', enableSave);
+ideaTitle.on('click', enableSave);
 ideaBody.on('keyup', enableSave);
 ideaCardSection.on('click', rate);
 
@@ -28,11 +29,13 @@ function Idea(id,title,body,quality) {
   this.body = $('.body-input').val();
   this.quality = 'swill';
 }
+
 function saveOurIdea(e) {
   e.preventDefault();
   var anIdea = new Idea();
   addNewIdeaCard(anIdea)
 }
+
 function enableSave() {
   var isDisabled = $('.title-input').val() === '' || $('.body-input').val() === '';
   saveBtn.prop('disabled', isDisabled);
@@ -49,10 +52,10 @@ function clearInputs() {
 function addNewIdeaCard(idea) {
   ideaCardSection.prepend(`<article class="idea-card-section" id=${idea.id}>
     <section class="example">
-       <h1 class="idea-title">${idea.title}</h1>
+       <h1 contenteditable="true" class="idea-title" onclick="editCard(event)">${idea.title}</h1>
        <img src="icon-assets/delete.svg" width="40" height="40" class="imageX">
      </section>
-         <p>${idea.body}
+         <p contenteditable="true">${idea.body}
          </p>
      <div class="votes">
        <img class="downvote quality-button" src="icon-assets/downvote.svg" width="40" height="40">
@@ -69,6 +72,7 @@ function storeIdea(idea) {
   var storeInfo = JSON.stringify(idea)
   localStorage.setItem(idea.id, storeInfo);
 }
+
 // DELETE CARD======
 function deleteCard(event) {
   if ($(event.target).hasClass('imageX')) { 
@@ -85,17 +89,20 @@ function removeFromStorage(selectId){
 }
 
 function fetch() {
-  var whatsInLocal = Object.keys(localStorage);
+  var whatsInLocal = Object.keys(localStorage); 
+  // gets values out and turns them into array so you can manipulate it
     for(var i = 0; i < whatsInLocal.length; i++) {
     console.log(JSON.parse(localStorage.getItem(whatsInLocal[i])))
+    // gettin data back out parsing it from string back to whatevs data type it was , culd be array or object 
     addNewIdeaCard(JSON.parse(localStorage.getItem(whatsInLocal[i])))  
-    }
+  }
+    // has to be key and what ur retrieving    }
 }
 
 // ==QUALITY
 var counter = 0;
   function rate(event) {
-    console.log('hi')
+    // console.log(event)
     if ($(event.target).hasClass('imageX')) {
       deleteCard(event) 
     } else if ($(event.target).hasClass('quality-button')) {
@@ -107,21 +114,20 @@ function castVote(ratings) {
     console.log(ratings)
   var qualityRating = $(event.target).closest('article').find('.user-quality')[0].id;  
     if ($(ratings).hasClass('upvote')  && counter === 0) {
-      counter++;
-      console.log('tu')
+      counter++;    
       $('.quality').text('plausible');
-    return 'plausible';
-  } else if ($(ratings).hasClass('upvote') && counter === 1 ) {
-      $('.quality').text('genius');
-      return 'genius';
-  } else if ($(ratings).hasClass('downvote') && counter === 1 )  {
-      counter --;
-     $('.quality').text('plausible');
       return 'plausible';
-  } else if ($(ratings).hasClass('downvote')  && counter === 0 ) {
-    $('.quality').text('swill');
-    return 'swill';
-  } 
+    } else if ($(ratings).hasClass('upvote') && counter === 1 ) {
+        $('.quality').text('genius');
+        return 'genius';
+    } else if ($(ratings).hasClass('downvote') && counter === 1 )  {
+        counter --;
+       $('.quality').text('plausible');
+        return 'plausible';
+    } else if ($(ratings).hasClass('downvote')  && counter === 0 ) {
+      $('.quality').text('swill');
+      return 'swill';
+    } 
 }
 
 function deleteCard(event) {
@@ -129,11 +135,66 @@ function deleteCard(event) {
  var selectId = ($(event.target).closest('article')[0].id)
    console.log(selectId)
 
- removeFromStorage(selectId)
+ removeFromStorage(selectId);
     $(event.target).closest('article').remove();
   }
 }
 
+
+function editCard(e) {
+  console.log(e.path)
+  //find the id value from the event that's been passed in here
+  //capture new text
+//   take things out of local storage
+//   match the id here to whichever object in local storage has that idea
+//   update the value of the key of title of that particular locas storage object
+
+//   objName.title = newTitleEntry
+
+// }
+
+// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// When a user clicks the title or task of a TODO in the list, that text should:
+
+// Become an editable text field, pre-populated with the existing TODO title or task.
+// The user should be able to “commit” their changes by pressing “Enter/Return” or by clicking outside of the text field.
+// If the user reloads the page, their edits will be reflected.
+
+
+
+
+// similar to delete where u find id of article 
+// localStorage.get() based off the id from event target
+// consooe.llog a lot
+// parse it'll give u quality etc in obvject . manipulate object so objectname.quality and reasign it to whatever class (genius etc)is on if statement for it 
+ // ex. object.quality === swill// 
+
+ // stringify adn send back to local storage w same id wehich will override other one
 
 
 

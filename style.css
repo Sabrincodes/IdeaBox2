@@ -16,6 +16,7 @@ header{
   display: flex;
   flex-direction: column;
   height: 45vh;
+  /*use px for height*/
   justify-content: center;
 }
 
